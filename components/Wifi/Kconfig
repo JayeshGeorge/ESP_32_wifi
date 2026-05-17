@@ -1,0 +1,60 @@
+menu "Wifi STA Configuration"
+	config WIFI_STA_CONNECT
+		bool "Connect using Wi-Fi"
+		default n 
+		help
+			Enables the Wifi driver to connect to your local network.
+	if WIFI_STA_CONNECT
+		choice WIFI_STA_TYPE
+			prompt "Internet Protocol (IP) version"
+			default WIFI_STA_CONNECT_IPV4
+			help
+				Choose the IP type to use for the connection (IPv4,IPv6 or Unspecified).
+			config WIFI_STA_CONNECT_IPV4
+				bool "IPv4"
+				select LWIP_IPV4
+				help
+					Use only IPv4 for the Wifi connection.
+			config WIFI_STA_CONFIG_IPV6
+				bool "IPv6"
+				select LWIP_IPV6
+				help
+					Use only IPv6 for the Wifi connection.
+		endchoice
+		
+		choice WIFI_STA_AUTH_MODE
+			prompt "Minimum Wifi Authentication mode"
+			default WIFI_STA_AUTH_WPA2_PSK
+			help
+				The weakest authentication mode device will use when connecting
+				to an access point. 
+			config WIFI_STA_AUTH_OPEN
+				bool "OPEN"
+			config WIFI_STA_AUTH_WEP
+				bool "WEP"
+			config WIFI_STA_AUTH_WPA_PSK
+				bool "WPA PSK"
+			config WIFI_STA_AUTH_WPA2_PSK
+				bool "WPA2 PSK"
+		endchoice
+		
+		config WIFI_STA_SSID
+			string "Wifi SSID"
+			default "myssid"
+			help
+				Network name(SSID) to connect to. 
+		
+		config WIFI_STA_PASSWORD
+			string "Wifi Password"
+			default "mypassword"
+			help
+				Network pre-shared key (PSK).
+		
+		config WIFI_STA_AUTO_RECONNECT
+			bool "Automatically attempt to reconnect on disconnection"
+			default n
+			help
+				If a network disconnection occurs, automatically reconnect 
+				to previous wifi network. 
+	endif
+endmenu
