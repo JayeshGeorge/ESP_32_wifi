@@ -38,17 +38,17 @@ menu "Wifi STA Configuration"
 				bool "WPA2 PSK"
 		endchoice
 		
-		config WIFI_STA_SSID
-			string "Wifi SSID"
-			default "myssid"
-			help
-				Network name(SSID) to connect to. 
+		#config WIFI_STA_SSID
+		#	string "Wifi SSID"
+	#		default "myssid"
+		#	help
+		#		Network name(SSID) to connect to. 
 		
-		config WIFI_STA_PASSWORD
-			string "Wifi Password"
-			default "mypassword"
-			help
-				Network pre-shared key (PSK).
+		#config WIFI_STA_PASSWORD
+			#string "Wifi Password"
+			#default "mypassword"
+			#help
+			#	Network pre-shared key (PSK).
 		
 		config WIFI_STA_AUTO_RECONNECT
 			bool "Automatically attempt to reconnect on disconnection"

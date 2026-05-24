@@ -17,6 +17,9 @@
 #define WIFI_STA_IPV4_OBTAINED   BIT1
 #define WIFI_STA_IPV6_OBTAINED   BIT2
 
+#define CONFIG_WIFI_STA_SSID SECRET_WIFI_SSID
+#define CONFIG_WIFI_STA_PASSWORD SECRET_WIFI_PASSWORD
+
 // Function prototypes
 esp_err_t wifi_init(EventGroupHandle_t event_grp);
 esp_err_t wifi_sta_stop(void);

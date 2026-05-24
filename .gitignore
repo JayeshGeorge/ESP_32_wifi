@@ -1,0 +1,20 @@
+# Build files
+build/
+secrets.h
+
+# IDE files
+.settings/
+.project
+.cproject
+
+# VSCode
+.vscode/
+
+# Python env
+.python_env/
+
+# Logs
+*.log
+
+# Temporary
+*.tmp
